@@ -77,3 +77,31 @@ As a user, I can user the run factory with water and flour and get naan.
 - code has exit condition
 - DOD if followed
 ```
+
+## Description
+- relevant modules are imported
+```
+from factory import NaanFactory
+import unittest
+```
+- class is initiated and an object created
+```
+class TestNaanFactory(unittest.TestCase):
+    factory = NaanFactory()
+```
+- test the return of make_dough using two different assert methods
+```
+    def test_make_dough(self):
+        self.assertEqual(self.factory.make_dough('water', 'flour'), 'dough')
+        self.assertNotEqual(self.factory.make_dough('sugar', 'flour'), 'dough')
+```
+- test the return of bake_naan using a single assert method
+```
+    def test_bake_naan(self):
+        self.assertEqual(self.factory.bake_naan('dough'), 'bread')
+'''
+- test the return of run_factory with a single assert method
+```
+ def test_run_factory(self):
+        self.assertTrue(self.factory.run_factory('water', 'flour'))
+```
